@@ -1,41 +1,41 @@
-# Substituições por Campo
+# Field Replacements
 
-## Substituições Básicas
+## Basic Replacements
 
-O modelo mais básico é desse jeito:
+The most basic template looks something like this:
 
-    {{Frente}}
+    {{Front}}
 
-Quando você coloca texto entre chaves, o Anki vai procurar por um campo com
-esse nome e vai substituir o texto com o conteúdo daquele campo.
+When you place text within curly brackets, Anki looks for a field by
+that name, and replaces the text with the actual content of the field.
 
-As letras maiúsculas e minúsculas são importantes nos nomes de campo. Se você tem um campo chamado 'Frente',
-escrever '\\{{frente}\\}' não vai funcionar (já que o 'F' do campo é maiúsculo).
+Field names are case sensitive. If you have a field named 'Front',
+writing '\\{{front}\\}' will not work properly.
 
-Seus modelos não estão limitados a uma lista de campos. Você pode também incluir
-texto arbitrário nos seus modelos. Por exemplo, se você está estudando
-capitais de cidades, e você criou um tipo de nota com um campo "País",
-você poderia criar um modelo de frente assim:
+Your templates are not limited to a list of fields. You can also include
+arbitrary text on your templates. For example, if you’re studying
+capital cities, and you’ve created a note type with a “Country” field,
+you might create a front template like this:
 
-    Qual é a capital de {{País}}?
+    What's the capital city of {{Country}}?
 
-O modelo padrão do verso seria assim:
+The default back template will look something like this:
 
-    {{Frente}}
+    {{FrontSide}}
 
     <hr id=answer>
 
-    {{Verso}}
+    {{Back}}
 
-Isso quer dizer: “me mostre o texto que está na frente, depois uma barra
-divisora e logo após o campo do verso”.
+This means “show me the text that’s on the front side, then a divider
+line, and then the Back field”.
 
-A parte do 'id=answer' fala pro Anki onde a barra divisora está entre a
-pergunta e a resposta. Isso faz com que o Anki automaticamente role a página até
-o ponto onde a resposta começa quando você aperta em 'mostrar resposta' em um cartão longo
-(isso é útil especialmente em dispositivos móveis com telas pequenas). Se você não
-quer uma linha horizontal no início da resposta, você pode usar
-outro elemento HTML como um parágrafo ou div.
+The 'id=answer' part tells Anki where the divider is between the
+question and the answer. This allows Anki to automatically scroll to the
+spot where the answer starts when you press 'show answer' on a long card
+(especially useful on mobile devices with small screens). If you don’t
+want a horizontal line at the beginning of the answer, you can use
+another HTML element such as a paragraph or div instead.
 
 ## Newlines
 
